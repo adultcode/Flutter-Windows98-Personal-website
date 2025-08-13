@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hesam/design/widgets/footer/desktop_footer.dart';
+import 'design/widgets/content/content_widget.dart';
 import 'design/widgets/windows_box.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +17,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-
+      theme: ThemeData(
+        fontFamily: 'ms_sans'
+      ),
+      builder: (context, child) => ResponsiveBreakpoints.builder(
+        child: child!,
+        breakpoints: [
+          const Breakpoint(start: 0, end: 450, name: MOBILE),
+          const Breakpoint(start: 451, end: 800, name: TABLET),
+          const Breakpoint(start: 801, end: 1920, name: DESKTOP),
+          const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+        ],
+      ),
       home: const HomePage(),
     );
   }
@@ -34,8 +48,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
-         Padding(padding: EdgeInsets.all(20),
-         child:  WindowsBox(),)
+          Expanded(flex: 9,child: ContentWidget(),),
+
+          Expanded(flex: 1,child: DesktopFooter())
         ],
       )
     );

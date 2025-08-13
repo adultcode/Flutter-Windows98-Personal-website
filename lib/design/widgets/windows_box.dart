@@ -4,7 +4,9 @@ import '../app_color.dart';
 import 'gradient_header.dart';
 
 class WindowsBox extends StatelessWidget {
-  const WindowsBox({super.key});
+
+  final String title;
+  const WindowsBox({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class WindowsBox extends StatelessWidget {
           color: lightGrey,
           child: Column(
             children: [
-              GradientHeader(),
+              GradientHeader(title: title,),
               Expanded(child: Container())
             ],
           ),
