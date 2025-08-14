@@ -1,18 +1,33 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
 
-import '../app_color.dart';
+import 'package:flutter/material.dart';
+import 'package:hesam/core/constants/screen_size.dart';
+import 'package:hesam/design/window/window_subtitle.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+
+import '../../core/constants/app_color.dart';
+
 import 'gradient_header.dart';
 
 class WindowsBox extends StatelessWidget {
 
   final String title;
-  const WindowsBox({required this.title});
+  final Widget content;
+  const WindowsBox({required this.title,required this.content});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 400,
+      width: ScreenSize.widthSize,
+      height: double.infinity,
+      /// margins based on Desktop or mobile
+      margin: EdgeInsets.symmetric(
+        horizontal: ResponsiveBreakpoints.of(context).isDesktop?
+            max(ScreenSize.widthSize*0.1, 60) :0,
+
+        vertical: ResponsiveBreakpoints.of(context).isDesktop?
+        max(ScreenSize.heightSize*0.1, 40) :0
+      ),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -59,7 +74,24 @@ class WindowsBox extends StatelessWidget {
           child: Column(
             children: [
               GradientHeader(title: title,),
-              Expanded(child: Container())
+              WindowSubtitle(),
+
+              Expanded(child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border(
+                    left: BorderSide(
+                      width: 1,
+                      color: Colors.black
+                    ),
+                      top: BorderSide(
+                      width: 1,
+                      color: Colors.black
+                    )
+                  )
+                ),
+                child: content,
+              ))
             ],
           ),
         ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hesam/design/widgets/footer/desktop_footer.dart';
+import 'package:hesam/state/footer_state.dart';
+import 'core/constants/app_color.dart';
+import 'core/constants/screen_size.dart';
 import 'design/widgets/content/content_widget.dart';
-import 'design/widgets/windows_box.dart';
+import 'design/window/windows_box.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
@@ -21,15 +25,27 @@ class MyApp extends StatelessWidget {
         fontFamily: 'ms_sans'
       ),
       builder: (context, child) => ResponsiveBreakpoints.builder(
+
         child: child!,
         breakpoints: [
-          const Breakpoint(start: 0, end: 450, name: MOBILE),
-          const Breakpoint(start: 451, end: 800, name: TABLET),
-          const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-          const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+          const Breakpoint(start: 0, end: 600, name: MOBILE),
+          const Breakpoint(start: 601, end: double.infinity, name: DESKTOP),
+         // const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
-      home: const HomePage(),
+      home: LayoutBuilder(
+        builder: (context, constraints) {
+          ScreenSize.widthSize = constraints.maxWidth;
+          ScreenSize.heightSize = constraints.maxHeight;
+          print("Screen Size: ${ScreenSize.widthSize} x ${ScreenSize.heightSize}");
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (context) => FooterState()),
+            ],
+            child: const HomePage(),
+          );
+        },
+      ),
     );
   }
 }
@@ -46,11 +62,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundGreen,
       body: Column(
         children: [
-          Expanded(flex: 9,child: ContentWidget(),),
+          Expanded(
+            child: Stack(
+              children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.black,
+                ),
+                ContentWidget()
+              ],
+            ),
+          ),
 
-          Expanded(flex: 1,child: DesktopFooter())
+           DesktopFooter()
         ],
       )
     );
