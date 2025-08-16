@@ -6,4 +6,7 @@ class MarginSize{
   static const double xl = 20.0;
   static const double xxl = 24.0;
   static const double xxxl = 32.0;
+
+  static const double buttonBorder = 1.5;
+  static const double windowBorder = 3.0;
 }

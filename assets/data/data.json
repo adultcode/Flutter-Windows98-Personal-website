@@ -1,0 +1,28 @@
+{
+
+  "profile": {
+    "name": "Hesam Rasoulian",
+    "title": "Flutter developer",
+    "bio": "A Flutter and Android developer with 6 years of experience specializing in high‑performance Flutter and Kotlin applications. Proven track record\nof architecting scalable solutions that enhance user experience, increase retention, and optimize performance. Combines deep mobile expertise\nwith strong backend skills in Django and a passion for leading and mentoring development teams."
+
+  },
+
+
+  "skills": [
+    {
+      "title": "Flutter",
+      "icon": "flutter.png"
+    },
+    {
+      "title": "Kotlin",
+      "icon": "kotlin.png"
+    }
+  ],
+
+  "contact": {
+    "email": "96atys@gmail.com",
+    "phone": "+989019655342",
+    "linkedin": "www.linkedin.com/",
+    "github": "https://github.com/adultcode"
+  }
+}

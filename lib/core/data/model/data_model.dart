@@ -1,0 +1,76 @@
+import 'package:json_annotation/json_annotation.dart';
+part 'data_model.g.dart';
+
+@JsonSerializable()
+class DataModel {
+final Profile profile;
+final List<Skill> skills;
+final Contact contact;
+
+DataModel({
+  required this.profile,
+  required this.skills,
+  required this.contact,
+});
+
+factory DataModel.fromJson(Map<String, dynamic> json) =>
+_$DataModelFromJson(json);
+
+Map<String, dynamic> toJson() => _$DataModelToJson(this);
+}
+
+/// profile class
+@JsonSerializable()
+class Profile {
+final String name;
+final String title;
+final String bio;
+
+Profile({
+required this.name,
+required this.title,
+required this.bio,
+});
+
+factory Profile.fromJson(Map<String, dynamic> json) =>
+_$ProfileFromJson(json);
+
+Map<String, dynamic> toJson() => _$ProfileToJson(this);
+}
+
+/// skill class
+@JsonSerializable()
+class Skill {
+final String title;
+final String icon;
+
+Skill({
+required this.title,
+required this.icon,
+});
+
+factory Skill.fromJson(Map<String, dynamic> json) => _$SkillFromJson(json);
+
+Map<String, dynamic> toJson() => _$SkillToJson(this);
+}
+
+/// contact class
+@JsonSerializable()
+class Contact {
+final String email;
+final String phone;
+final String linkedin;
+final String github;
+
+Contact({
+required this.email,
+required this.phone,
+required this.linkedin,
+required this.github,
+});
+
+factory Contact.fromJson(Map<String, dynamic> json) =>
+_$ContactFromJson(json);
+
+Map<String, dynamic> toJson() => _$ContactToJson(this);
+}

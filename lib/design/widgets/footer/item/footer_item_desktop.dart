@@ -58,7 +58,7 @@ class FooterItemDesktop extends StatelessWidget {
           spacing: 5,
           children: [
             Image.asset("assets/icon/$image",width: IconSize.md,height: IconSize.md,),
-            Text(title,style: TextStyle(fontSize: TextSize.medium),)
+            Text(title,style: TextStyle(fontSize: TextSize.medium,fontFamily: 'ms_sans'),)
           ],
         ),
       ),

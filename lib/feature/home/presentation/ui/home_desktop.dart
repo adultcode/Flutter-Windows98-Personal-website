@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+import 'package:hesam/core/constants/app_color.dart';
+import 'package:hesam/core/constants/margin_size.dart';
+import 'package:hesam/core/constants/screen_size.dart';
+import 'package:hesam/core/constants/text_size.dart';
+import 'package:hesam/feature/home/presentation/ui/widget/contact_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/constants/icon_size.dart';
+import '../../../../core/data/state/data_provider.dart';
+import '../../../../design/separator_widget.dart';
+import '../../../../design/widgets/button/simple_button.dart';
+import '../../../../design/window/windows_box.dart';
+class HomeDesktop extends StatelessWidget {
+  const HomeDesktop({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return WindowsBox(title: "Resume",content: HomeContent(),);
+  }
+}
+
+class HomeContent extends StatelessWidget {
+
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+     // color: Colors.red,
+      child: ScrollbarTheme(data: ScrollbarThemeData(
+        thickness: MaterialStateProperty.all(8),
+        minThumbLength: 8,
+        mainAxisMargin: 0,
+        trackColor: MaterialStateProperty.all(Colors.white),
+        thumbColor: MaterialStateProperty.all(darkGrey),
+      ),
+          child: Scrollbar(
+            controller: _scrollController,
+
+            thumbVisibility: true,
+            trackVisibility: true,
+            interactive: true,
+            radius: Radius.circular(0),
+            scrollbarOrientation: ScrollbarOrientation.right,
+
+            child: ListView(
+              controller: _scrollController,
+
+              children: [
+                Padding(padding: EdgeInsets.all(20),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                //  spacing: MarginSize.md,
+                  spacing: ScreenSize.widthSize*0.02,
+                  children: [
+                    /// profile image
+                   Container(
+                   //  flex: 4,
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       spacing: 10,
+                       children: [
+                         Container(
+                           width: IconSize.profileSize,
+                           height: IconSize.profileSize,
+                           color: Colors.blue,
+                         ),
+                         SimpleButton(title: "Download CV",onClick: (){},),
+                         SizedBox(height: 15,),
+                         /// contacts
+                         ContactWidget(icon: "phone.png",title: context.read<DataProvider>().data.contact.phone,),
+                         ContactWidget(icon: "envelope.png",title: context.read<DataProvider>().data.contact.email,)
+                       ],
+                     ),
+                   ),
+                    /// personal information
+                    Expanded(
+                      //  flex: 11,
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        /// name
+                        Text(context.read<DataProvider>().data.profile.name,style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
+                        /// title
+                        Text(context.read<DataProvider>().data.profile.title,style: TextStyle(fontSize: TextSize.large),),
+
+                        SeparatorWidget(),
+                        /// about me title
+                        Text("About me",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
+                        SizedBox(height: MarginSize.xs,),
+                        Text(context.read<DataProvider>().data.profile.bio,style: TextStyle(fontSize: TextSize.large),textAlign: TextAlign.justify,),
+
+                      ],
+                    )),
+
+
+                  ],
+                ),)
+              ],
+            ),
+          ))
+    );
+  }
+}

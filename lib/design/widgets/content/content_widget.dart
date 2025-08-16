@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import '../../../feature/home/presentation/home.dart';
+import '../../../feature/home/presentation/ui/home.dart';
 import '../../../state/footer_state.dart';
 
 

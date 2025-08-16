@@ -37,6 +37,9 @@ dependencies:
   flutter_svg: ^2.0.10+1
   provider: any
   responsive_framework: ^1.5.1
+  json_annotation: ^4.9.0
+  json_serializable: ^6.9.0
+
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  build_runner: ^2.4.11
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -67,6 +71,7 @@ flutter:
 
   assets:
     - assets/icon/
+    - assets/data/data.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -80,6 +85,20 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+
+    - family: gilory
+      fonts:
+        - asset: assets/font/gilory/Gilroy-Medium.ttf
+          weight: 700
+        - asset: assets/font/gilory/Gilroy-Medium.ttf
+          weight: 600
+        - asset: assets/font/gilory/Gilroy-Regular.ttf
+          weight: 500
+        - asset: assets/font/gilory/Gilroy-Regular.ttf
+          weight: 400
+        - asset: assets/font/gilory/Gilroy-Thin.ttf
+          weight: 300
+
     - family: ms_sans
       fonts:
       - asset: assets/font/ms_sans.ttf

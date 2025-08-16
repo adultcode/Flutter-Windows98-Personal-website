@@ -6,4 +6,6 @@ class TextSize{
   static const double xLarge = 18.0;
   static const double xxLarge = 20.0;
   static const double xxxLarge = 24.0;
+
+
 }

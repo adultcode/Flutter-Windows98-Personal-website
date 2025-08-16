@@ -28,16 +28,12 @@ class GradientHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title,
-          style: TextStyle(fontSize: TextSize.medium,color: Colors.white,fontWeight: FontWeight.w500,letterSpacing: 1),),
+          style: TextStyle(fontSize: TextSize.medium,color: Colors.white,fontWeight: FontWeight.w500,letterSpacing: 1,
+              fontFamily: 'ms_sans'),),
           /// header icons
           Row(
             spacing: 1,
             children: [
-              // SvgPicture.asset(
-              //   "assets/icon/cross2.svg",
-              //   width: 50,
-              //   height: 50,
-              // ),
 
               Image.asset("assets/icon/minimize.png",width: IconSize.sm,height: IconSize.sm,),
               Image.asset("assets/icon/maximize.png",width: IconSize.sm,height: IconSize.sm,),

@@ -11,6 +11,7 @@ class WindowSubtitle extends StatelessWidget {
     color: Colors.black,
     fontWeight: FontWeight.w500,
     letterSpacing: 1,
+      fontFamily: 'ms_sans'
   );
   @override
   Widget build(BuildContext context) {

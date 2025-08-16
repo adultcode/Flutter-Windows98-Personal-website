@@ -4,6 +4,7 @@ import 'package:hesam/design/widgets/footer/desktop_footer.dart';
 import 'package:hesam/state/footer_state.dart';
 import 'core/constants/app_color.dart';
 import 'core/constants/screen_size.dart';
+import 'core/data/state/data_provider.dart';
 import 'design/widgets/content/content_widget.dart';
 import 'design/window/windows_box.dart';
 import 'package:provider/provider.dart';
@@ -20,16 +21,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hesam Rasoulian - Flutter Developer',
       theme: ThemeData(
-        fontFamily: 'ms_sans'
+        fontFamily: 'gilory'
       ),
       builder: (context, child) => ResponsiveBreakpoints.builder(
 
         child: child!,
         breakpoints: [
-          const Breakpoint(start: 0, end: 600, name: MOBILE),
-          const Breakpoint(start: 601, end: double.infinity, name: DESKTOP),
+          const Breakpoint(start: 0, end: 700, name: MOBILE),
+          const Breakpoint(start: 701, end: double.infinity, name: DESKTOP),
          // const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (context) => FooterState()),
+              ChangeNotifierProvider(create: (context) => DataProvider()),
             ],
             child: const HomePage(),
           );
@@ -59,27 +61,45 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    /// start to parse json data file
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<DataProvider>().load();
+
+    },);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundGreen,
-      body: Column(
-        children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.black,
+      body: Consumer<DataProvider>(
+        builder: (context, value, child) {
+          /// show loading
+          if(value.isLoading) return Center(child: CircularProgressIndicator(),);
+          /// show main content
+          return Column(
+            children: [
+              Expanded(
+                child: Stack(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.black,
+                    ),
+                    ContentWidget()
+                  ],
                 ),
-                ContentWidget()
-              ],
-            ),
-          ),
+              ),
 
-           DesktopFooter()
-        ],
+              DesktopFooter()
+            ],
+          );
+        },
       )
     );
   }
