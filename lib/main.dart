@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundGreen,
+      backgroundColor: AppColor.backgroundGreen,
       body: Consumer<DataProvider>(
         builder: (context, value, child) {
           /// show loading

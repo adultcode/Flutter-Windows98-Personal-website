@@ -19,7 +19,7 @@ class GradientHeader extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 4,horizontal: MarginSize.sm),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [darkBlue,lightBlue],
+          colors: [AppColor.darkBlue,AppColor.lightBlue],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         )

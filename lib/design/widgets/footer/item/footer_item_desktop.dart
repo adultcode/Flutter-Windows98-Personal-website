@@ -38,7 +38,7 @@ class FooterItemDesktop extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5,vertical: 3),
         decoration: BoxDecoration(
-          color: lightGrey,
+          color: AppColor.lightGrey,
           border: Border(
             top: BorderSide(color: Colors.white,width: 2),
             left: BorderSide(color: Colors.white,width: 2),

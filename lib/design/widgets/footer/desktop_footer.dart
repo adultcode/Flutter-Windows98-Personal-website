@@ -13,7 +13,7 @@ class DesktopFooter extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 2,horizontal: 1),
-      color: lightGrey,
+      color: AppColor.lightGrey,
       child: Row(
         spacing: 3,
         children: [

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hesam/core/constants/app_color.dart';
 import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/core/constants/screen_size.dart';
 import 'package:hesam/core/constants/text_size.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/contact_widget.dart';
+import 'package:hesam/feature/home/presentation/ui/widget/skill_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/constants/icon_size.dart';
@@ -24,6 +26,23 @@ class HomeContent extends StatelessWidget {
 
   final ScrollController _scrollController = ScrollController();
 
+  List<Widget>  skills = [
+    SkillWidget(icon: "flutter2.svg"),
+    SkillWidget(icon: "dart.svg"),
+    SkillWidget(icon: "django.svg"),
+    SkillWidget(icon: "git.svg"),
+    SkillWidget(icon: "kotlin.svg"),
+    SkillWidget(icon: "go.svg"),
+  ];
+  HomeDesktop(){
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+    // skills.add(SkillWidget(icon: "flutter2.svg"));
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +52,7 @@ class HomeContent extends StatelessWidget {
         minThumbLength: 8,
         mainAxisMargin: 0,
         trackColor: MaterialStateProperty.all(Colors.white),
-        thumbColor: MaterialStateProperty.all(darkGrey),
+        thumbColor: MaterialStateProperty.all(AppColor.darkGrey),
       ),
           child: Scrollbar(
             controller: _scrollController,
@@ -90,6 +109,16 @@ class HomeContent extends StatelessWidget {
                         Text("About me",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
                         SizedBox(height: MarginSize.xs,),
                         Text(context.read<DataProvider>().data.profile.bio,style: TextStyle(fontSize: TextSize.large),textAlign: TextAlign.justify,),
+                        SeparatorWidget(),
+                        Text("Skill",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
+                        SizedBox(height: MarginSize.xs,),
+
+                       Wrap(
+                            spacing: 10,
+                           direction: Axis.horizontal,
+                           children: [...skills],
+                         ),
+
 
                       ],
                     )),

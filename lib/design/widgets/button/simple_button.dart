@@ -33,9 +33,9 @@ class _SimpleButtonState extends State<SimpleButton> {
   @override
   Widget build(BuildContext context) {
     final borderColor = isPressed ? Colors.black : Colors.black;
-    final innerBorderColor = isPressed ? Colors.black : darkGrey;
+    final innerBorderColor = isPressed ? Colors.black : AppColor.darkGrey;
     final topLeftColor = isPressed ? Colors.white70 : Colors.white;
-    final innerTopLeftColor = isPressed ? lightGrey.withOpacity(0.7) : lightGrey;
+    final innerTopLeftColor = isPressed ? AppColor.lightGrey.withOpacity(0.7) : AppColor.lightGrey;
 
     return GestureDetector(
       onTapDown: _handleTapDown,

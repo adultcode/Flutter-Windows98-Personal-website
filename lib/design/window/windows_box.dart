@@ -52,11 +52,11 @@ class WindowsBox extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border(
                 bottom: BorderSide(
-                  color: darkGrey,
+                  color: AppColor.darkGrey,
                   width: 3.0,
                 ),
                 right: BorderSide(
-                  color: darkGrey,
+                  color: AppColor.darkGrey,
                   width: 3.0,
                 ),
                 top: BorderSide(
@@ -70,7 +70,7 @@ class WindowsBox extends StatelessWidget {
             )
         ),
         child: Container(
-          color: lightGrey,
+          color: AppColor.lightGrey,
           child: Column(
             children: [
               GradientHeader(title: title,),

@@ -9,6 +9,7 @@ class ContactWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       child: Row(
         spacing: 5,
         children: [

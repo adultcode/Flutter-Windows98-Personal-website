@@ -17,7 +17,7 @@ class WindowSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 2),
-      color: lightGrey,
+      color: AppColor.lightGrey,
       child: Row(
         spacing: 5,
         children: [
