@@ -5,6 +5,7 @@ import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/core/constants/screen_size.dart';
 import 'package:hesam/core/constants/text_size.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/contact_widget.dart';
+import 'package:hesam/feature/home/presentation/ui/widget/home_contact.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/skill_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -76,22 +77,7 @@ class HomeContent extends StatelessWidget {
                     /// profile image
                    Container(
                    //  flex: 4,
-                     child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       spacing: 10,
-                       children: [
-                         Container(
-                           width: IconSize.profileSize,
-                           height: IconSize.profileSize,
-                           color: Colors.blue,
-                         ),
-                         SimpleButton(title: "Download CV",onClick: (){},),
-                         SizedBox(height: 15,),
-                         /// contacts
-                         ContactWidget(icon: "phone.png",title: context.read<DataProvider>().data.contact.phone,),
-                         ContactWidget(icon: "envelope.png",title: context.read<DataProvider>().data.contact.email,)
-                       ],
-                     ),
+                     child: HomeContact(),
                    ),
                     /// personal information
                     Expanded(
@@ -113,11 +99,19 @@ class HomeContent extends StatelessWidget {
                         Text("Skill",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
                         SizedBox(height: MarginSize.xs,),
 
-                       Wrap(
-                            spacing: 10,
-                           direction: Axis.horizontal,
-                           children: [...skills],
-                         ),
+                       Consumer<DataProvider>(
+                         builder: (context, value, child) {
+                           return Wrap(
+                             spacing: 10,
+                             direction: Axis.horizontal,
+                             children: [
+
+                              ...value.data.skills.map((e) => SkillWidget(icon: e.icon),).toList()
+                             ],
+                           );
+                         },
+                       )
+
 
 
                       ],

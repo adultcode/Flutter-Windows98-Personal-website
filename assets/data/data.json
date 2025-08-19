@@ -11,11 +11,21 @@
   "skills": [
     {
       "title": "Flutter",
-      "icon": "flutter.png"
+      "icon": "flutter2.svg"
+    },  {
+      "title": "Dart",
+      "icon": "dart.svg"
+    },  {
+      "title": "Fjango",
+      "icon": "django.svg"
     },
     {
       "title": "Kotlin",
-      "icon": "kotlin.png"
+      "icon": "kotlin.svg"
+    },
+    {
+      "title": "Go",
+      "icon": "go.svg"
     }
   ],
 
