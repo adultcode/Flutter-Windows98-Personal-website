@@ -43,6 +43,7 @@ Map<String, dynamic> toJson() => _$ProfileToJson(this);
 @JsonSerializable()
 class Project {
   final String title;
+  final String thumbnail;
   final String description;
   final int year;
   List<String> technologies;
@@ -51,6 +52,7 @@ class Project {
     required this.title,
     required this.description,
     required this.technologies,
+    required this.thumbnail,
     required this.year,
   });
 

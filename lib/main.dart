@@ -10,6 +10,8 @@ import 'design/window/windows_box.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import 'feature/portfolio/presentation/state/portfolio_provider.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
             providers: [
               ChangeNotifierProvider(create: (context) => FooterState()),
               ChangeNotifierProvider(create: (context) => DataProvider()),
+              ChangeNotifierProvider(create: (context) => PortfolioProvider()),
             ],
             child: const HomePage(),
           );
