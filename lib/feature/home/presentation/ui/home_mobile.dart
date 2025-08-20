@@ -21,8 +21,7 @@ class HomeMobile extends StatelessWidget {
   );
   @override
   Widget build(BuildContext context) {
-    return WindowsBox(title: "Home",
-    content: Container(
+    return Container(
       padding: EdgeInsets.all(MarginSize.lg),
       child: SingleChildScrollView(
         child: Column(
@@ -35,18 +34,18 @@ class HomeMobile extends StatelessWidget {
               color: Colors.blue,
             ),
             Container(
-           //   alignment: ,
+              //   alignment: ,
               child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
 
-                children: [
-                  TextSpan(text: "Hi ",style: _titleStyle),
-                  TextSpan(text: "I'm ",style: _titleStyle.copyWith(color: AppColor.lightBlue)),
-                  TextSpan(text: "Hesam Rasoulian",style: _titleStyle),
-                  TextSpan(text: "\na Flutter developer",style: _titleStyle),
-                ]
-              )),
+                      children: [
+                        TextSpan(text: "Hi ",style: _titleStyle),
+                        TextSpan(text: "I'm ",style: _titleStyle.copyWith(color: AppColor.lightBlue)),
+                        TextSpan(text: "Hesam Rasoulian",style: _titleStyle),
+                        TextSpan(text: "\na Flutter developer",style: _titleStyle),
+                      ]
+                  )),
             ),
             Container(
                 alignment: Alignment.centerLeft,
@@ -84,7 +83,6 @@ class HomeMobile extends StatelessWidget {
           ],
         ),
       ),
-    ),
     );
 
   }

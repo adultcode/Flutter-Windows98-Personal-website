@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hesam/design/window/windows_box.dart';
+import 'package:hesam/feature/portfolio/presentation/ui/portfolio.dart';
 
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -21,7 +23,12 @@ class ContentWidget extends StatelessWidget {
         switch (value){
           case 1:
               /// show home content
-            return  buildHomePage(isDesktop: ResponsiveBreakpoints.of(context).isDesktop);
+            return  WindowsBox(title: "Home",content: buildHomePage(isDesktop: ResponsiveBreakpoints.of(context).isDesktop));
+          case 3:
+              /// show portfolio content
+            return  WindowsBox(
+                title: "Portfolio",
+                content: buildPortfolio(isDesktop: ResponsiveBreakpoints.of(context).isDesktop));
           default: return Container();
         }
       },

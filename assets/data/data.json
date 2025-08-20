@@ -34,5 +34,20 @@
     "phone": "+989019655342",
     "linkedin": "www.linkedin.com/",
     "github": "https://github.com/adultcode"
-  }
+  },
+  "project": [
+    {
+      "title": "Flutter E-commerce App",
+      "description": "Developed a high-performance e-commerce <b>application</b> using Flutter, integrating real-time data synchronization and payment gateways.",
+      "year": 2023,
+      "technologies": ["Flutter", "Dart", "Firebase"]
+    },
+    {
+      "title": "Kotlin Android App",
+      "description": "Architected a scalable Android application in Kotlin, focusing on user experience and performance optimization.",
+      "year": 2023,
+      "link": "google.com",
+      "technologies": ["Kotlin", "Android SDK"]
+    }
+  ]
 }

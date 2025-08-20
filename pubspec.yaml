@@ -39,6 +39,7 @@ dependencies:
   responsive_framework: ^1.5.1
   json_annotation: ^4.9.0
   json_serializable: ^6.9.0
+  flutter_html: ^3.0.0
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
 
   assets:
     - assets/icon/
+    - assets/image/
     - assets/data/data.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

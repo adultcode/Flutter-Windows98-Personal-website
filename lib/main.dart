@@ -84,15 +84,22 @@ class _HomePageState extends State<HomePage> {
           return Column(
             children: [
               Expanded(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.black,
-                    ),
-                    ContentWidget()
-                  ],
+                child: Container(
+                  width: double.infinity,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 10,
+                        top: 10,
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.red,
+                        ),
+                      ),
+                      ContentWidget()
+                    ],
+                  ),
                 ),
               ),
 

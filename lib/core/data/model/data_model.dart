@@ -5,12 +5,14 @@ part 'data_model.g.dart';
 class DataModel {
 final Profile profile;
 final List<Skill> skills;
+final List<Project> project;
 final Contact contact;
 
 DataModel({
   required this.profile,
   required this.skills,
   required this.contact,
+  required this.project,
 });
 
 factory DataModel.fromJson(Map<String, dynamic> json) =>
@@ -37,6 +39,26 @@ _$ProfileFromJson(json);
 
 Map<String, dynamic> toJson() => _$ProfileToJson(this);
 }
+/// skill class
+@JsonSerializable()
+class Project {
+  final String title;
+  final String description;
+  final int year;
+  List<String> technologies;
+
+  Project({
+    required this.title,
+    required this.description,
+    required this.technologies,
+    required this.year,
+  });
+
+  factory Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProjectToJson(this);
+}
+
 
 /// skill class
 @JsonSerializable()

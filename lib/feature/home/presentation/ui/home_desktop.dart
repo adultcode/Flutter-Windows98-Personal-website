@@ -14,27 +14,13 @@ import '../../../../core/data/state/data_provider.dart';
 import '../../../../design/separator_widget.dart';
 import '../../../../design/widgets/button/simple_button.dart';
 import '../../../../design/window/windows_box.dart';
+
+
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return WindowsBox(title: "Resume",content: HomeContent(),);
-  }
-}
-
-class HomeContent extends StatelessWidget {
 
   final ScrollController _scrollController = ScrollController();
 
-  List<Widget>  skills = [
-    SkillWidget(icon: "flutter2.svg"),
-    SkillWidget(icon: "dart.svg"),
-    SkillWidget(icon: "django.svg"),
-    SkillWidget(icon: "git.svg"),
-    SkillWidget(icon: "kotlin.svg"),
-    SkillWidget(icon: "go.svg"),
-  ];
+
   HomeDesktop(){
     // skills.add(SkillWidget(icon: "flutter2.svg"));
     // skills.add(SkillWidget(icon: "flutter2.svg"));
