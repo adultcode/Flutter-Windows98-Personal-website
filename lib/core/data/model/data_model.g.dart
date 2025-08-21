@@ -42,6 +42,8 @@ Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
   technologies: (json['technologies'] as List<dynamic>)
       .map((e) => e as String)
       .toList(),
+  link: json['link'] as String?,
+  download: json['download'] as String?,
   thumbnail: json['thumbnail'] as String,
   year: (json['year'] as num).toInt(),
 );
@@ -50,6 +52,8 @@ Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
   'title': instance.title,
   'thumbnail': instance.thumbnail,
   'description': instance.description,
+  'link': instance.link,
+  'download': instance.download,
   'year': instance.year,
   'technologies': instance.technologies,
 };

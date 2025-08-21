@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/core/data/state/data_provider.dart';
+import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/portfolio_detail_desktop.dart';
 import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_item.dart';
 import 'package:provider/provider.dart';
+
+import '../state/portfolio_provider.dart';
 
 class PortfolioDesktop extends StatelessWidget {
   const PortfolioDesktop({super.key});
@@ -15,8 +18,12 @@ class PortfolioDesktop extends StatelessWidget {
      children: [
 
        Expanded(
-         child: Consumer<DataProvider>(
-            builder: (context, dataProvider, child) {
+         child: Consumer2<DataProvider,PortfolioProvider>(
+            builder: (context, dataProvider,portfolioProvider, child) {
+
+              if(portfolioProvider.project !=null ){
+                return PortfolioDetailDesktop();
+              }
               return GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Number of items in each row

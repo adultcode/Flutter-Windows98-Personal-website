@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/core/constants/text_size.dart';
+import 'package:hesam/design/widgets/button/simple_button.dart';
 import 'package:hesam/feature/portfolio/presentation/state/portfolio_provider.dart';
 import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/portfolio_tags.dart';
 import 'package:provider/provider.dart';
@@ -20,32 +21,53 @@ class PortfolioDetailDesktop extends StatelessWidget {
           spacing: MarginSize.md,
           children: [
             /// project title
-            Text(context.read<PortfolioProvider>().project!.title,
-            style: TextStyle(fontSize: TextSize.xLarge),),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: MarginSize.sm,
+              children: [
+                // GestureDetector(
+                //   onTap: () {
+                //
+                //   },
+                //   child: Image.asset("assets/icon/error.png",width: 20,),
+                // ),
+                Text(context.read<PortfolioProvider>().project!.title,
+                  style: TextStyle(fontSize: TextSize.xLarge),)
+              ],
+            ),
 
             /// project thumbnail
-            Image.asset("assets/image/${context.read<PortfolioProvider>().project!.thumbnail}"),
+            Image.asset("assets/image/${context.read<PortfolioProvider>().project!.thumbnail}",
+            fit: BoxFit.cover,),
 
 
             ///project tags(technelogies)
-            Container(
-            //  color: Colors.blue,
-              width: 400,
-              child:
-              // Flexible(
-              //   flex: 1,
-              //   child:
-                Wrap(
-                  alignment: WrapAlignment.start,
-                  spacing: 10,
-                  direction: Axis.horizontal,
-                
-                  children: [
-                  ...context.read<PortfolioProvider>().project!.technologies.map((e) => PortfolioTags(title: e),).toList(),
-                  ],
-                ),
-            //  ),
-            ),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+             children: [
+               Container(
+                 //  color: Colors.blue,
+                 width: 400,
+                 child:
+                 // Flexible(
+                 //   flex: 1,
+                 //   child:
+                 Wrap(
+                   alignment: WrapAlignment.start,
+                   spacing: 10,
+                   direction: Axis.horizontal,
+
+                   children: [
+                     ...context.read<PortfolioProvider>().project!.technologies.map((e) => PortfolioTags(title: e),).toList(),
+                   ],
+                 ),
+                 //  ),
+               ),
+               /// project year
+               Text(context.read<PortfolioProvider>().project?.year.toString()??"",
+                   style: TextStyle(fontWeight: FontWeight.w600))
+             ],
+           ),
             /// project description
             Html(
             data: context.read<PortfolioProvider>().project!.description,
@@ -60,12 +82,25 @@ class PortfolioDetailDesktop extends StatelessWidget {
         //
         //     """,
         //     ),
-            Text(context.read<PortfolioProvider>().project!.description,
-              style: TextStyle(fontSize: TextSize.large,color: Colors.black),),
+        //     Text(context.read<PortfolioProvider>().project!.description,
+        //       style: TextStyle(fontSize: TextSize.large,color: Colors.black),),
+
 
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
 
+                /// download link
+                if(context.read<PortfolioProvider>().project?.download !=null)
+                SimpleButton(title: "Download", onClick: () {
+
+                },),
+
+                /// Visit website link
+                if(context.read<PortfolioProvider>().project?.link !=null)
+                SimpleButton(title: "    Visit    ", onClick: () {
+
+                },),
               ],
             )
           ],

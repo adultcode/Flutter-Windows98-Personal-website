@@ -23,10 +23,10 @@ class WindowsBox extends StatelessWidget {
       /// margins based on Desktop or mobile
       margin: EdgeInsets.symmetric(
         horizontal: ResponsiveBreakpoints.of(context).isDesktop?
-            max(ScreenSize.widthSize*0.08, 60) :0,
+            max(ScreenSize.widthSize*0.1, 60) :0,
 
         vertical: ResponsiveBreakpoints.of(context).isDesktop?
-        max(ScreenSize.heightSize*0.1, 40) :0
+        max(ScreenSize.heightSize*0.10, 40) :0
       ),
       decoration: BoxDecoration(
         border: Border(

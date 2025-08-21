@@ -45,6 +45,8 @@ class Project {
   final String title;
   final String thumbnail;
   final String description;
+  final String? link;
+  final String? download;
   final int year;
   List<String> technologies;
 
@@ -52,6 +54,8 @@ class Project {
     required this.title,
     required this.description,
     required this.technologies,
+     this.link,
+     this.download,
     required this.thumbnail,
     required this.year,
   });
