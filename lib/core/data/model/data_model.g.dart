@@ -15,12 +15,16 @@ DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
   project: (json['project'] as List<dynamic>)
       .map((e) => Project.fromJson(e as Map<String, dynamic>))
       .toList(),
+  experience: (json['experience'] as List<dynamic>)
+      .map((e) => Experience.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
   'profile': instance.profile,
   'skills': instance.skills,
   'project': instance.project,
+  'experience': instance.experience,
   'contact': instance.contact,
 };
 
@@ -65,6 +69,23 @@ Map<String, dynamic> _$SkillToJson(Skill instance) => <String, dynamic>{
   'title': instance.title,
   'icon': instance.icon,
 };
+
+Experience _$ExperienceFromJson(Map<String, dynamic> json) => Experience(
+  title: json['title'] as String,
+  company: json['company'] as String,
+  description: json['description'] as String,
+  start: json['start'] as String,
+  end: json['end'] as String,
+);
+
+Map<String, dynamic> _$ExperienceToJson(Experience instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'company': instance.company,
+      'description': instance.description,
+      'start': instance.start,
+      'end': instance.end,
+    };
 
 Contact _$ContactFromJson(Map<String, dynamic> json) => Contact(
   email: json['email'] as String,

@@ -54,5 +54,23 @@
       "download": "google.com",
       "technologies": ["Kotlin", "Android SDK"]
     }
+  ],
+  "experience": [
+    {
+      "title": "Flutter developer",
+      "company": "Parsipay",
+      "description": "Developed a high-performance e-commerce application using Flutter, integrating real-time data synchronization and payment gateways.</p>",
+      "start": "Aug 2024",
+      "end": "Present"
+
+    },
+    {
+      "title": "Android developer",
+      "company": "Google",
+      "description": "Developed a high-performance e-commerce application using Flutter, integrating real-time data synchronization and payment gateways.</p>",
+      "start": "Aug 2024",
+      "end": "Present"
+
+    }
   ]
 }
