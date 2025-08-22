@@ -1,16 +1,8 @@
-# hesam
+# Flutter portfolio app - Windows 98
 
-A new Flutter project.
+Flutter portfolio web app inspired by Windows 98
 
-## Getting Started
+* Edit asset/data.json file with your information
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* 
+<img width="1920" height="913" alt="flutter-windows98" src="https://github.com/user-attachments/assets/51086259-caca-41df-acc2-31000b3a65c7" />
