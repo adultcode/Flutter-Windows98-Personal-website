@@ -34,7 +34,6 @@ class MyApp extends StatelessWidget {
         breakpoints: [
           const Breakpoint(start: 0, end: 700, name: MOBILE),
           const Breakpoint(start: 701, end: double.infinity, name: DESKTOP),
-         // const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
       home: LayoutBuilder(
@@ -97,7 +96,14 @@ class _HomePageState extends State<HomePage> {
                         top: 10,
                         child: DesktopItem(
                           title: "My Computer",
-                          icon: "computer.png",
+                          icon: "favicon.png",
+                          onTap: (){
+                            // showDialog(context: context, builder: (context) {
+                            //   return Dialog(child: Container(
+                            //     child: Text("OK :|"),
+                            //   ),);
+                            // },);
+                          },
                         ),
                       ),
                       ContentWidget()

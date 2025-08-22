@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/portfolio_tags.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../../core/constants/margin_size.dart';
 import '../../../../../../core/constants/text_size.dart';
@@ -74,15 +75,6 @@ class PortfolioDetailContent extends StatelessWidget {
               "p":Style(fontSize: FontSize(TextSize.large))
             },
           ),
-          //     Html(
-          //     data: """
-          //             <h1>Hello, World!</h1>
-          // <p><span style="font-style:italic;">flutter_html</span> supports a variety of HTML and CSS tags and attributes.</p>
-          //
-          //     """,
-          //     ),
-          //     Text(context.read<PortfolioProvider>().project!.description,
-          //       style: TextStyle(fontSize: TextSize.large,color: Colors.black),),
 
 
           Row(
@@ -91,13 +83,16 @@ class PortfolioDetailContent extends StatelessWidget {
 
               /// download link
               if(context.read<PortfolioProvider>().project?.download !=null)
-                SimpleButton(title: "Download", onClick: () {
+                SimpleButton(title: "Download", onClick: () async{
+                  await launchUrl(Uri.parse(context.read<PortfolioProvider>().project?.download ?? ""));
+
 
                 },),
 
               /// Visit website link
               if(context.read<PortfolioProvider>().project?.link !=null)
-                SimpleButton(title: "    Visit    ", onClick: () {
+                SimpleButton(title: "    Visit    ", onClick: () async{
+                  await launchUrl(Uri.parse(context.read<PortfolioProvider>().project?.link ?? ""));
 
                 },),
             ],

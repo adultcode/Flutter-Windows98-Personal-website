@@ -48,13 +48,22 @@
       "technologies": ["Flutter", "Dart", "Firebase"]
     },
     {
-      "title": "Kotlin Android App",
+      "title": "Kotlin Android AppKotlin Android AppKotlin Android App",
       "thumbnail": "placeholder.jpg",
       "description": "<p>Architected a scalable Android application in Kotlin, focusing on user experience and performance optimization.</p>",
       "year": 2023,
       "link": "google.com",
       "download": "google.com",
       "technologies": ["Kotlin", "Android SDK"]
+    },
+    {
+      "title": "Jobyar",
+      "thumbnail": "placeholder.jpg",
+      "description": "<p>Developed a high-performance e-commerce <b>application</b> using Flutter, integrating real-time data synchronization and payment gateways.</p>",
+      "year": 2023,
+      "link": "google.com",
+
+      "technologies": ["Flutter", "Dart", "Firebase"]
     }
   ],
   "experience": [

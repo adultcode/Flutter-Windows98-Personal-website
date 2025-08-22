@@ -14,15 +14,18 @@ class DesktopFooter extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 2,horizontal: 1),
       color: AppColor.lightGrey,
-      child: Row(
-        spacing: 3,
-        children: [
-          FooterItemDesktop(title: "Home",image: "computer.png",index: 1,),
-          FooterItemDesktop(title: "Experience",image: "ie.png",index: 2,),
-          FooterItemDesktop(title: "Portfolio",image: "folder.png",index: 3,),
-        //  Image.asset("assets/icon/computer.png",width: IconSize.large,height: IconSize.large,),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          spacing: MarginSize.windowBorder,
+          children: [
+            FooterItemDesktop(title: "Home",image: "favicon.png",index: 1,),
+            FooterItemDesktop(title: "Experience",image: "ie.png",index: 2,),
+            FooterItemDesktop(title: "Portfolio",image: "folder.png",index: 3,),
 
-        ],
+
+          ],
+        ),
       ),
     );
   }

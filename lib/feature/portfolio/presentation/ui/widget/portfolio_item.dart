@@ -39,14 +39,26 @@ class PortfolioItem extends StatelessWidget {
               Expanded(child: Row(crossAxisAlignment: CrossAxisAlignment.center,
                 spacing: 5,
                 children: [
-                  Image.asset("assets/icon/paint.png",height: IconSize.lg,),
-                  RichText(
-                      text: TextSpan(
-                          children: [
-                            TextSpan(text: "${project.title}\n",style: TextStyle(fontSize: TextSize.medium,color: Colors.black,fontWeight: FontWeight.w600)),
-                            TextSpan(text: "${project.year}",style: TextStyle(fontSize: TextSize.medium,color: Colors.black)),
-                          ]
-                      ))
+                  Image.asset("assets/icon/paint.png",height: IconSize.md,),
+                  // Column(
+                  //   spacing: 0,
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   children: [
+                  //     Text( "${project.title}\n",style: TextStyle(fontSize: TextSize.medium,color: Colors.black,fontWeight: FontWeight.w600)),
+                  //     Text( "${project.year}",style: TextStyle(fontSize: TextSize.medium,color: Colors.black)),
+                  //
+                  //   ],
+                  // ),
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: RichText(
+                        text: TextSpan(
+                            children: [
+                              TextSpan(text: "${project.title}\n",style: TextStyle(fontSize: TextSize.medium,color: Colors.black,fontWeight: FontWeight.w600)),
+                              TextSpan(text: "${project.year}",style: TextStyle(fontSize: TextSize.medium,color: Colors.black)),
+                            ]
+                        )),
+                  )
 
 
                 ],

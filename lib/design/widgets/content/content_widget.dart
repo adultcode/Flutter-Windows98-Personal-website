@@ -38,8 +38,7 @@ class ContentWidget extends StatelessWidget {
       },
     );
 
-    // if(ResponsiveBreakpoints.of(context).isDesktop) return DesktopContent();
-    // return MobileContent();
+
   }
 }
 
