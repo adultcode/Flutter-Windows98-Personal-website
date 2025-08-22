@@ -5,5 +5,5 @@ import 'experience_mobile.dart';
 
 Widget buildExperiencePage({required bool isDesktop}){
   if(isDesktop) return ExperienceDesktop();
-  return ExperienceDesktop();
+  return ExperienceMobile();
 }

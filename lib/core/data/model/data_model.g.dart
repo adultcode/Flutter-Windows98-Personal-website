@@ -15,6 +15,9 @@ DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
   project: (json['project'] as List<dynamic>)
       .map((e) => Project.fromJson(e as Map<String, dynamic>))
       .toList(),
+  education: (json['education'] as List<dynamic>)
+      .map((e) => Education.fromJson(e as Map<String, dynamic>))
+      .toList(),
   experience: (json['experience'] as List<dynamic>)
       .map((e) => Experience.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -25,19 +28,24 @@ Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
   'skills': instance.skills,
   'project': instance.project,
   'experience': instance.experience,
+  'education': instance.education,
   'contact': instance.contact,
 };
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
   name: json['name'] as String,
   title: json['title'] as String,
+  cv: json['cv'] as String,
   bio: json['bio'] as String,
+  residence: json['residence'] as String,
 );
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
   'name': instance.name,
   'title': instance.title,
+  'cv': instance.cv,
   'bio': instance.bio,
+  'residence': instance.residence,
 };
 
 Project _$ProjectFromJson(Map<String, dynamic> json) => Project(
@@ -68,6 +76,22 @@ Skill _$SkillFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$SkillToJson(Skill instance) => <String, dynamic>{
   'title': instance.title,
   'icon': instance.icon,
+};
+
+Education _$EducationFromJson(Map<String, dynamic> json) => Education(
+  title: json['title'] as String,
+  university: json['university'] as String,
+  degree: json['degree'] as String,
+  start: json['start'] as String,
+  end: json['end'] as String,
+);
+
+Map<String, dynamic> _$EducationToJson(Education instance) => <String, dynamic>{
+  'title': instance.title,
+  'university': instance.university,
+  'degree': instance.degree,
+  'start': instance.start,
+  'end': instance.end,
 };
 
 Experience _$ExperienceFromJson(Map<String, dynamic> json) => Experience(

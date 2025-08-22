@@ -8,6 +8,7 @@ import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+import '../../../../../design/decoration/app_decoration.dart';
 import '../../state/portfolio_provider.dart';
 
 class PortfolioItem extends StatelessWidget {
@@ -25,53 +26,14 @@ class PortfolioItem extends StatelessWidget {
         //margin: EdgeInsets.symmetric(vertical:ResponsiveBreakpoints.of(context).isDesktop?0:10 ),
         padding: EdgeInsets.all(4),
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: AppColor.lightGrey,
-            border: Border(
-                bottom: BorderSide(
-                  color: Colors.black,
-                  width: 2.0,
-                ),
-                right: BorderSide(
-                  color: Colors.black,
-                  width: 2.0,
-                ),
-                top: BorderSide(
-                  color: Colors.white70,
-                  width: 2.0,
-                ),
-                left: BorderSide(
-                  color: Colors.white70,
-                  width: 2.0,
-                )
-            )
-        ),
+        decoration: AppDecoration.itemDecoration,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start  ,
           children: [
             Container(
               //margin: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  border: Border(
-                      bottom: BorderSide(
-                        color: Colors.white70,
-                        width: 2.0,
-                      ),
-                      right: BorderSide(
-                        color: Colors.white70,
-                        width: 2.0,
-                      ),
-                      top: BorderSide(
-                        color: Colors.black,
-                        width: 2.0,
-                      ),
-                      left: BorderSide(
-                        color: Colors.black,
-                        width: 2.0,
-                      )
-                  )
-                ),
-                child: Image.asset("assets/image/placeholder.jpg",
+                decoration: AppDecoration.itemDecorationReverse,
+                child: Image.asset("assets/image/${project.thumbnail}",
                   height: 200,
                   width: double.infinity,fit: BoxFit.cover,)),
               Expanded(child: Row(crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,7 +44,7 @@ class PortfolioItem extends StatelessWidget {
                       text: TextSpan(
                           children: [
                             TextSpan(text: "${project.title}\n",style: TextStyle(fontSize: TextSize.medium,color: Colors.black,fontWeight: FontWeight.w600)),
-                            TextSpan(text: "2025",style: TextStyle(fontSize: TextSize.medium,color: Colors.black)),
+                            TextSpan(text: "${project.year}",style: TextStyle(fontSize: TextSize.medium,color: Colors.black)),
                           ]
                       ))
 

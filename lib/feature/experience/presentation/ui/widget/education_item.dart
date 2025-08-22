@@ -6,16 +6,18 @@ import '../../../../../core/constants/margin_size.dart';
 import '../../../../../core/data/model/data_model.dart';
 import '../../../../../design/decoration/app_decoration.dart';
 
-class WorkItem extends StatelessWidget {
+class EducationItem extends StatelessWidget {
 
- Experience experience;
- WorkItem({required this.experience});
+  Education education;
+  EducationItem({required this.education});
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(MarginSize.md),
       margin: EdgeInsets.symmetric(vertical: MarginSize.sm),
-        decoration: AppDecoration.itemDecoration,
+      //height: 50,
+      // width: 50,
+      decoration: AppDecoration.itemDecoration,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: MarginSize.sm,
@@ -24,15 +26,20 @@ class WorkItem extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(child: Text(experience.title,style: TextStyle(fontWeight: FontWeight.w600),)),
-              Text("${experience.start} - ${experience.end}",style: TextStyle(fontSize: TextSize.small,fontWeight: FontWeight.w600),),
+              Expanded(child: Text(education.title,style: TextStyle(fontWeight: FontWeight.w600),)),
+              Text("${education.start} - ${education.end}",style: TextStyle(fontSize: TextSize.small,fontWeight: FontWeight.w600),),
             ],
           ),
 
           /// company
-          Text(experience.company,style: TextStyle(),),
-          /// description
-          Text(experience.description,style: TextStyle(),),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(text:education.university ),
+                TextSpan(text:" - ${education.degree}" ),
+              ]
+            ),
+          ),
         ],
       ),
     );

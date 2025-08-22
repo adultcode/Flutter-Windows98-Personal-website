@@ -7,6 +7,7 @@ final Profile profile;
 final List<Skill> skills;
 final List<Project> project;
 final List<Experience> experience;
+final List<Education> education;
 final Contact contact;
 
 DataModel({
@@ -14,6 +15,7 @@ DataModel({
   required this.skills,
   required this.contact,
   required this.project,
+  required this.education,
   required this.experience,
 });
 
@@ -28,12 +30,16 @@ Map<String, dynamic> toJson() => _$DataModelToJson(this);
 class Profile {
 final String name;
 final String title;
+final String cv;
 final String bio;
+final String residence;
 
 Profile({
 required this.name,
 required this.title,
+required this.cv,
 required this.bio,
+required this.residence,
 });
 
 factory Profile.fromJson(Map<String, dynamic> json) =>
@@ -83,7 +89,31 @@ factory Skill.fromJson(Map<String, dynamic> json) => _$SkillFromJson(json);
 
 Map<String, dynamic> toJson() => _$SkillToJson(this);
 }
-/// skill class
+
+/// experience class
+@JsonSerializable()
+class Education {
+  final String title;
+  final String university;
+  final String degree;
+  final String start;
+  final String end;
+
+  Education({
+    required this.title,
+    required this.university,
+    required this.degree,
+    required this.start,
+    required this.end,
+  });
+
+  factory Education.fromJson(Map<String, dynamic> json) => _$EducationFromJson(json);
+
+  Map<String, dynamic> toJson() => _$EducationToJson(this);
+}
+
+
+/// experience class
 @JsonSerializable()
 class Experience {
 final String title;

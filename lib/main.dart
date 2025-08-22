@@ -6,6 +6,7 @@ import 'core/constants/app_color.dart';
 import 'core/constants/screen_size.dart';
 import 'core/data/state/data_provider.dart';
 import 'design/widgets/content/content_widget.dart';
+import 'design/widgets/desktop/desktop_item.dart';
 import 'design/window/windows_box.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -94,10 +95,9 @@ class _HomePageState extends State<HomePage> {
                       Positioned(
                         left: 10,
                         top: 10,
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          color: Colors.red,
+                        child: DesktopItem(
+                          title: "My Computer",
+                          icon: "computer.png",
                         ),
                       ),
                       ContentWidget()

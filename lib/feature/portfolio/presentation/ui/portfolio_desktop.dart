@@ -28,27 +28,19 @@ class PortfolioDesktop extends StatelessWidget {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Number of items in each row
                   mainAxisExtent: 260.0, // Fixed height for each item
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: MarginSize.md,
+                  mainAxisSpacing: MarginSize.md,
                 ),
                 itemCount: 2,
                 itemBuilder: (context, index) {
                   return PortfolioItem(project: dataProvider.data.project[index],);
                 },
-                // children: [
-                //   ...dataProvider.data.project.map((e) => PortfolioItem(project: e,),).toList()
-                // ],
+
+
               );
             },
          ),
        ),
-       // Row(
-       //   spacing: 5,
-       //   children: [
-       //     Expanded(child: PortfolioItem()),
-       //     Expanded(child: PortfolioItem()),
-       //   ],
-       // )
      ],
     ),);
   }

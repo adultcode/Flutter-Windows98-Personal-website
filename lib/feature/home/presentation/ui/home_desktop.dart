@@ -80,15 +80,19 @@ class HomeDesktop extends StatelessWidget {
                         /// about me title
                         Text("About me",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
                         SizedBox(height: MarginSize.xs,),
+
                         Text(context.read<DataProvider>().data.profile.bio,style: TextStyle(fontSize: TextSize.large),textAlign: TextAlign.justify,),
                         SeparatorWidget(),
+
+                        /// skill section
                         Text("Skill",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),),
                         SizedBox(height: MarginSize.xs,),
 
+                       /// skill data
                        Consumer<DataProvider>(
                          builder: (context, value, child) {
                            return Wrap(
-                             spacing: 10,
+                             spacing: MarginSize.md,
                              direction: Axis.horizontal,
                              children: [
 

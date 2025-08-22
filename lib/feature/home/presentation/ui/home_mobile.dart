@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hesam/core/constants/app_color.dart';
 import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/design/window/windows_box.dart';
+import 'package:hesam/feature/home/presentation/ui/widget/avatar_widget.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/contact_widget.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/home_contact.dart';
 import 'package:hesam/feature/home/presentation/ui/widget/skill_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/constants/icon_size.dart';
 import '../../../../core/constants/text_size.dart';
@@ -28,11 +30,7 @@ class HomeMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           spacing: MarginSize.md,
           children: [
-            Container(
-              width: IconSize.profileSize,
-              height: IconSize.profileSize,
-              color: Colors.blue,
-            ),
+            AvatarWidget(),
             Container(
               //   alignment: ,
               child: RichText(
@@ -54,13 +52,16 @@ class HomeMobile extends StatelessWidget {
             Text(context.read<DataProvider>().data.profile.bio,style: TextStyle(fontSize: TextSize.medium),
               textAlign: TextAlign.justify,),
 
+            /// skill section
             Container(
                 alignment: Alignment.centerLeft,
                 child: Text("Skill",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),)),
+
+            /// skill data
             Consumer<DataProvider>(
               builder: (context, value, child) {
                 return Wrap(
-                  spacing: 10,
+                  spacing: MarginSize.md,
                   direction: Axis.horizontal,
                   children: [
 
@@ -70,13 +71,19 @@ class HomeMobile extends StatelessWidget {
               },
             ),
 
+            /// contact information
             Container(
                 alignment: Alignment.centerLeft,
                 child: Text("Contact",style: TextStyle(fontSize: TextSize.large,fontWeight: FontWeight.bold,fontFamily: 'gilory'),)),
 
             ContactWidget(icon: "phone.png",title: context.read<DataProvider>().data.contact.phone,),
             ContactWidget(icon: "envelope.png",title: context.read<DataProvider>().data.contact.email,),
-            SimpleButton(title: "Download CV",onClick: (){},),
+
+            ///download cv
+            SimpleButton(title: "Download CV",onClick: ()async{
+              await launchUrl(Uri.parse(context.read<DataProvider>().data.profile.cv));
+
+            },),
 
 
 

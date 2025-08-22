@@ -7,6 +7,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../core/constants/app_color.dart';
 
+import '../../core/constants/margin_size.dart';
 import 'gradient_header.dart';
 
 class WindowsBox extends StatelessWidget {
@@ -23,28 +24,28 @@ class WindowsBox extends StatelessWidget {
       /// margins based on Desktop or mobile
       margin: EdgeInsets.symmetric(
         horizontal: ResponsiveBreakpoints.of(context).isDesktop?
-            max(ScreenSize.widthSize*0.1, 60) :0,
+            max(ScreenSize.widthSize*0.15, 60) :0,
 
         vertical: ResponsiveBreakpoints.of(context).isDesktop?
-        max(ScreenSize.heightSize*0.10, 40) :0
+        max(ScreenSize.heightSize*0.08, 40) :0
       ),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
-            width: 3.0,
+            width: MarginSize.windowBorder,
           ),
           right: BorderSide(
             color: Colors.black,
-            width: 3.0,
+            width: MarginSize.windowBorder,
           ),
             top: BorderSide(
               color: Color(0xffBFBFBF),
-              width: 3.0,
+              width: MarginSize.windowBorder,
             ),
             left: BorderSide(
             color: Color(0xffBFBFBF),
-            width: 3.0,
+            width: MarginSize.windowBorder,
           )
         )
       ),
@@ -53,19 +54,19 @@ class WindowsBox extends StatelessWidget {
             border: Border(
                 bottom: BorderSide(
                   color: AppColor.darkGrey,
-                  width: 3.0,
+                  width: MarginSize.windowBorder,
                 ),
                 right: BorderSide(
                   color: AppColor.darkGrey,
-                  width: 3.0,
+                  width: MarginSize.windowBorder,
                 ),
                 top: BorderSide(
                   color: Colors.white,
-                  width: 3.0,
+                  width: MarginSize.windowBorder,
                 ),
                 left: BorderSide(
                   color: Colors.white,
-                  width: 3.0,
+                  width: MarginSize.windowBorder,
                 )
             )
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hesam/core/constants/app_color.dart';
+import 'package:hesam/core/constants/margin_size.dart';
 
 class PortfolioTags extends StatelessWidget {
 
@@ -10,7 +11,7 @@ class PortfolioTags extends StatelessWidget {
     return FittedBox(
      // width: double.infinity,
       child: Row(
-        spacing: 5,
+        spacing: MarginSize.sm,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(

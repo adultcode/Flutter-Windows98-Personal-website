@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hesam/core/constants/margin_size.dart';
 import 'package:hesam/feature/portfolio/presentation/state/portfolio_provider.dart';
 import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/portfolio_detail_desktop.dart';
+import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_detail/portfolio_detail_mobile.dart';
 import 'package:hesam/feature/portfolio/presentation/ui/widget/portfolio_item.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class PortfolioMobile extends StatelessWidget {
         builder: (context, dataProvider, portfolioProvider, child) {
 
           if(portfolioProvider.project !=null ){
-            return PortfolioDetailDesktop();
+            return PortfolioDetailMobile();
           }else{
             return Container(
               //  height: 400,
@@ -27,16 +28,13 @@ class PortfolioMobile extends StatelessWidget {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // Number of items in each row
                   mainAxisExtent: 260.0, // Fixed height for each item
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: MarginSize.md,
+                  mainAxisSpacing: MarginSize.md,
                 ),
                 itemCount: 2,
                 itemBuilder: (context, index) {
                   return PortfolioItem(project: dataProvider.data.project[index],);
                 },
-                // children: [
-                //   ...dataProvider.data.project.map((e) => PortfolioItem(project: e,),).toList()
-                // ],
               ),
             );
           }
